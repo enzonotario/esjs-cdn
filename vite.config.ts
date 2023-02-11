@@ -9,4 +9,7 @@ export default defineConfig({
       serveClientAssetsInDev: true,
     }),
   ],
+  server: {
+    port: 1337,
+  },
 })

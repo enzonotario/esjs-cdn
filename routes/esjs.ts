@@ -4,7 +4,7 @@ import * as lzs from 'lz-string'
 
 const esjsRoute: RequestHandler = async (req, res, next) => {
   try {
-    const output = transpile(lzs.decompressFromEncodedURIComponent(req.params.code))
+    const output = transpile(lzs.default.decompressFromEncodedURIComponent(req.params.code))
 
     res.type('js')
     res.send(output)
