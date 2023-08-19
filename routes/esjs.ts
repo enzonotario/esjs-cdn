@@ -1,10 +1,10 @@
 import type { RequestHandler } from 'express'
 import { transpile } from '@es-js/core'
-import * as lzs from 'lz-string'
+import { decompressFromURL } from '@amoutonbrady/lz-string'
 
 const esjsRoute: RequestHandler = async (req, res, next) => {
   try {
-    const output = transpile(lzs.default.decompressFromEncodedURIComponent(req.params.code))
+    const output = transpile(decompressFromURL(req.params.code) ?? '')
 
     res.type('js')
     res.send(output)
